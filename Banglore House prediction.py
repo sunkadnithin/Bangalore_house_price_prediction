@@ -6,13 +6,12 @@ import seaborn as sb
 data=pd.read_csv("Bengaluru_House_Data.csv")
 
 #checking FUNC
-def hmap(data):
-    sb.heatmap(data.isnull())
-    plt.show()
 def csv(data):
     d=data.iloc[:,:]
     print(d)
-
+def hmap(data):
+    sb.heatmap(data.isnull())
+    plt.show()
     
 #filling empty and removing unwanted col 
 data["balcony"]=data["balcony"].fillna(0)
@@ -53,10 +52,22 @@ yPred=reg.predict(xtest)
 #print(yPred)
 
 
+
+    
+
+    
 from sklearn.metrics import mean_squared_error
 print("Mean Squared Error:",mean_squared_error(ytest,yPred))
 print("Regression Score:",reg.score(xtest,ytest)*100,"%\n")
-hmap(data)
+
+#Graphs
+'''hmap(data)
+plt.scatter(ytest,yPred)
+plt.plot(ytest,yPred,c='r')
+plt.show()
+'''
+
+
 
 def PdictLoop():
     area=int(input('''Enter the associaste number of the Type of Aear you want
